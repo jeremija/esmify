@@ -33,7 +33,7 @@ module.exports = function (bundler, pluginOpts = {}) {
     const dir = path.dirname(file);
     const relative = relativePath(cwd, dir);
     return relative.startsWith(`node_modules${path.sep}`) ||
-      relative.indexOf(`${path.sep}node_modules${path.sep}`) > -1;
+      relative.startsWith(`..${path.sep}`);
   };
 
   // Patch browserify resolve algorithm
